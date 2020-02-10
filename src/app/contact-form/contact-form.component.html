@@ -1,0 +1,101 @@
+<section class="container p-5">
+    <h3>{{isNew?"Add":"Edit"}}</h3>
+
+    <form class="form" #f="ngForm">
+        <div>
+            <label>ContactId</label>
+            <input type="number" name="cid" [(ngModel)]="contact.ContactID" class="form-control"
+            [readonly]="!isNew"  min="100" #cid="ngModel"/>
+            <ol *ngIf="(cid.touched || cid.dirty) && cid.invalid">
+                <!-- <li *ngIf="cid.errors.required">cant be blank</li> -->
+               
+
+            </ol>
+        </div>
+        <div>
+            <label>firstname</label>
+            <input type="text"
+            name="fnm" [(ngModel)]="contact.firstName" class="form-control" required #fnm="ngModel"
+            />
+            <ol *ngIf="(fnm.touched || fnm.dirty) && fnm.invalid">
+                <li *ngIf="fnm.errors.required">cant be blank</li>
+               
+
+            </ol>
+
+        </div>
+
+        <div>
+            <label>lastname</label>
+            <input type="text"
+            name="lnm" [(ngModel)]="contact.lastName" class="form-control" required #lnm="ngModel"
+           />
+            <ol *ngIf="(lnm.touched || lnm.dirty) && lnm.invalid">
+                <li *ngIf="lnm.errors.required">cant be blank</li>
+                
+
+            </ol>
+
+        </div>
+
+        <div>
+            <label>mobileNumber</label>
+            <input type="text"
+            name="mbn" [(ngModel)]="contact.mobileNumber" class="form-control" required #mbn="ngModel"
+            />
+            <ol *ngIf="(mbn.touched || mbn.dirty) && mbn.invalid">
+                <li *ngIf="mbn.errors.required">cant be blank</li>
+              
+
+            </ol>
+
+        </div>
+
+       
+        <div>
+            <label>organization</label>
+            <input type="text"
+            name="org" [(ngModel)]="contact.organization" class="form-control" required #org="ngModel"
+            />
+            <ol *ngIf="(org.touched || org.dirty) && org.invalid">
+                <li *ngIf="org.errors.required">cant be blank</li>
+               
+
+            </ol>
+
+        </div>
+
+        <div>
+            <label>emailid</label>
+            <input type="email"
+            name="em" [(ngModel)]="contact.mailId" class="form-control" required #em="ngModel"
+           />
+            <ol *ngIf="(em.touched || em.dirty) && em.invalid">
+                <li *ngIf="em.errors.required">cant be blank</li>
+              
+
+            </ol>
+
+        </div>
+
+        <div>
+            <label>date of birth</label>
+            <input type="date"
+            name="dob" [(ngModel)]="contact.dobstr" (change)="dobupdate()" class="form-control" required #dob="ngModel"
+            />
+            <ol *ngIf="(dob.touched || dob.dirty) && dob.invalid">
+               
+             
+
+            </ol>
+
+        </div>
+
+        <div class="text-right">
+            <button type="button" name="btnsave"  class="btn btn-primary" [disabled]="!f.invalid" (click)="save()">ADD</button>
+
+        </div>
+
+    </form>
+
+</section>
